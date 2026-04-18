@@ -1,18 +1,17 @@
 import { Text, View } from "react-native";
 import {Link} from "expo-router";
-import "@/global.css";
+import {SafeAreaView as RNSafeAreaView} from "react-native-safe-area-context";
+import { styled } from "nativewind";
+
+const SafeAreaView=styled(RNSafeAreaView)
+
 export default function Index() {
   return (
-    <View
-      className="flex-1 items-center justify-center bg-background "
+    <SafeAreaView
+      className="flex-1 bg-background p-5 "
     >
-      <Text className="text-lg font-bold text-success">Edit app/index.tsx to edit this screen.</Text>
-     <Link href="/subscriptions/spotify"> Go to Subscriptions </Link>
-     <Link href={{
-       pathname:"/subscriptions/[id]",
-       params:{id:"clude"}
-     }}>clude</Link>
+      <Text className="text-lg font-bold text-success">Home</Text>
 
-    </View>
+    </SafeAreaView>
   );
 }
