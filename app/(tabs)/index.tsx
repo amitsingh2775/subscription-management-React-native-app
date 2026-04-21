@@ -10,7 +10,8 @@ export default function Index() {
     <SafeAreaView
       className="flex-1 bg-background p-5 "
     >
-      <Text className="text-lg font-bold text-success">Home</Text>
+      <Text className=" font-bold text-success font-sans-extrabold text-5xl">Home</Text>
+      <Text className="text-success font-sans-light">Home</Text>
 
     </SafeAreaView>
   );
