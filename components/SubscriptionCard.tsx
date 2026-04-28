@@ -1,9 +1,9 @@
 import {View ,Text,Image, Pressable} from "react-native"
-import {formatCurrency,formatSubscriptionDateTime} from "@/lib/utils";
+import {formatCurrency,formatSubscriptionDateTime,formatStatusLabel} from "@/lib/utils";
 import clsx from "clsx";
 
 
-const SubscriptionCard=({paymentMethod,name,price,currency,icon,billing,color,category,plan,renewalDate,
+const SubscriptionCard=({paymentMethod,name,price,currency,icon,billing,status,color,category,plan,renewalDate,startDate,
     expanded,onPress
 }:SubscriptionCardProps)=>{
     return (
@@ -52,9 +52,9 @@ const SubscriptionCard=({paymentMethod,name,price,currency,icon,billing,color,ca
                     <View className="sub-row">
 
                         <View className="sub-row-copy">
-                            <Text className="sub-label">Payment:</Text>
+                            <Text className="sub-label">Category:</Text>
                             <Text className="sub-value" numberOfLines={1} ellipsizeMode="tail">
-                                {paymentMethod?.trim()}
+                                {category?.trim() || plan?.trim()}
                             </Text>
 
                         </View>
@@ -64,9 +64,9 @@ const SubscriptionCard=({paymentMethod,name,price,currency,icon,billing,color,ca
                     <View className="sub-row">
 
                         <View className="sub-row-copy">
-                            <Text className="sub-label">Payment:</Text>
+                            <Text className="sub-label">Started:</Text>
                             <Text className="sub-value" numberOfLines={1} ellipsizeMode="tail">
-                                {paymentMethod?.trim()}
+                                {startDate ? formatSubscriptionDateTime(startDate) : ""}
                             </Text>
 
                         </View>
@@ -76,14 +76,27 @@ const SubscriptionCard=({paymentMethod,name,price,currency,icon,billing,color,ca
                     <View className="sub-row">
 
                         <View className="sub-row-copy">
-                            <Text className="sub-label">Payment:</Text>
+                            <Text className="sub-label">Renewal Date:</Text>
                             <Text className="sub-value" numberOfLines={1} ellipsizeMode="tail">
-                                {paymentMethod?.trim()}
+                                {renewalDate ? formatSubscriptionDateTime(renewalDate) : ""}
                             </Text>
 
                         </View>
 
                     </View>
+
+                     <View className="sub-row">
+
+                        <View className="sub-row-copy">
+                            <Text className="sub-label">Status:</Text>
+                            <Text className="sub-value" numberOfLines={1} ellipsizeMode="tail">
+                                {status? formatStatusLabel(status) : ""}
+                            </Text>
+
+                        </View>
+
+                    </View>
+
 
                 </View>
 
