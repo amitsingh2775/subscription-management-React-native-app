@@ -1,12 +1,56 @@
-import type {ImageSourcePropType} from "react-native";
+import type { ImageSourcePropType } from "react-native";
 
-// we will do like this in our app it will automaticaly applied no need to import it in every file where we want to use it
-// ex:- const MyIcon = ({ focused, icon }: TabIconProps) => { ... }
-declare global{
-    interface TabIconProps{
+declare global {
+    interface AppTab {
+        name: string;
+        title: string;
+        icon: ImageSourcePropType;
+    }
+
+    interface TabIconProps {
         focused: boolean;
         icon: ImageSourcePropType;
     }
+
+    interface Subscription {
+        id: string;
+        icon: ImageSourcePropType;
+        name: string;
+        plan?: string;
+        category?: string;
+        paymentMethod?: string;
+        status?: string;
+        startDate?: string;
+        price: number;
+        currency?: string;
+        billing: string;
+        frequency?: string;
+        renewalDate?: string;
+        color?: string;
+    }
+
+    interface SubscriptionCardProps extends Omit<Subscription, "id"> {
+        expanded: boolean;
+        onPress: () => void;
+        onCancelPress?: () => void;
+        isCancelling?: boolean;
+    }
+
+    interface UpcomingSubscription {
+        id: string;
+        icon: ImageSourcePropType;
+        name: string;
+        price: number;
+        currency?: string;
+        daysLeft: number;
+    }
+   // id hata do
+    interface UpcomingSubscriptionCardProps
+        extends Omit<UpcomingSubscription, "id"> {}
+
+    interface ListHeadingProps {
+        title: string;
+    }
 }
 
-export{};
+export {};

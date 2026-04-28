@@ -1,5 +1,5 @@
 import {Tabs} from "expo-router";
-import {tabs} from "../../constants/data";
+import {AppTabs} from "../../constants/data";
 import {Text, View,Image} from "react-native";
 import clsx from "clsx";
 import {components ,colors} from "@/constants/theme";
@@ -51,7 +51,7 @@ const TabLayout=() =>{
         
      >
         {
-            tabs.map((tab)=>(
+            AppTabs.map((tab)=>(
                 <Tabs.Screen
                 key={tab.name}
                 name={tab.name}
